@@ -5,17 +5,17 @@
 #define PIN_LCD_CS    14    // LCD_CS   -> GPIO14
 #define PIN_LCD_DC    15    // LCD_DC   -> GPIO15
 #define PIN_LCD_RST   21    // LCD_RST  -> GPIO21
-#define PIN_LCD_BL    22    // LCD_BL   -> GPIO22（高电平点亮）
+#define PIN_LCD_BL    22    // LCD_BL   -> GPIO22
 
 static const int  PANEL_W = 172;
 static const int  PANEL_H = 320;
 static const bool PANEL_INVERT = true;
 static const bool PANEL_RGB_ORDER = false;
 
-#define COUNT_MIN  2   // 分钟
-#define COUNT_SEC  0   // 秒
-#define ALARM_FLASH_SECONDS 30   // 到点后闪烁持续时长（秒）
-#define FLASH_INTERVAL_MS  300   // 闪烁翻转间隔（毫秒）
+#define COUNT_MIN  2
+#define COUNT_SEC  0
+#define ALARM_FLASH_SECONDS 30
+#define FLASH_INTERVAL_MS  300
 
 class LGFX_ST7789 : public lgfx::LGFX_Device {
   lgfx::Panel_ST7789 _panel;
@@ -93,7 +93,7 @@ void setup() {
   digitalWrite(PIN_LCD_BL, HIGH);
 
   display.init();
-  display.setRotation(1); // 0~3 视实际安装方向
+  display.setRotation(1);
   display.fillScreen(TFT_BLACK);
 
   start_ms = millis();
